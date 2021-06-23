@@ -5,9 +5,6 @@ def solution(n, lost, reserve):
     set_reserve = sorted(list(set(reserve)))
     lost = []
 
-    print("set_lost : ", set_lost)
-    print("set_reserve : ", set_reserve)
-
     ##1. 여벌을 가져왔지만 도난당한 학생을 찾아야함
     for i in range(len(set_lost)):
         if set_lost[i] in set_reserve:
