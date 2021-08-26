@@ -1,21 +1,23 @@
 def solution(s):
-    answer = len(s)
-    print(len(s))
+    answer = 0
     zip_result = []
     zip_result_len = []
-    for i in range(1, len(s) // 2 + 1):
-        zip_tmp = ""
-        if len(s) % i == 0:
-            slice_str = []
 
+    if len(s) == 1:
+        return 1
+    else:
+        for i in range(1, len(s)):
+            zip_tmp = ""
+            slice_str = []
             for j in range(1, len(s) // i + 1):
                 slice_str.append(s[i * (j - 1): i * j])
+
+            slice_str.append(s[i * (len(s) // i):])
 
             l = 0
             zip_num = 1
 
             while l != len(slice_str):
-
                 if l != len(slice_str) - 1 and slice_str[l] == slice_str[l + 1]:
                     ##압축할 수 있는 경우
                     zip_num += 1
@@ -42,8 +44,7 @@ def solution(s):
 
             zip_result.append(zip_tmp)
             zip_result_len.append(len(zip_tmp))
-            print(zip_tmp)
 
-    answer = min(zip_result_len)
+        answer = min(zip_result_len)
 
-    return answer
+        return answer
