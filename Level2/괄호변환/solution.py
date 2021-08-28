@@ -5,6 +5,5 @@ def solution(p):
         return answer
     else:
         pass
-        s = "(())))"
 
     return answer
