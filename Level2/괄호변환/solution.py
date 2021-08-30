@@ -1,15 +1,18 @@
 def solution(P):
     answer = ''
 
-    balence, i = isBalenced(P)
-
-    if balence == True:
+    if P == '':
         return P
     else:
-        u = P[:i]
-        v = P[i:]
+        balence, i = isBalenced(P)
 
-        print(u, "---", v)
+        if i == 0:
+            return P
+        else:
+            u = P[:i]
+            v = P[i:]
+
+            print(u, "---", v)
 
     return answer
 
@@ -29,4 +32,3 @@ def isBalenced(P):
             return isBalence, i
 
     return isBalence, 0
-
