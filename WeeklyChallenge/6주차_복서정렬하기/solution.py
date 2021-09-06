@@ -3,20 +3,20 @@ def solution(weights, head2head):
     score = []
     # N = none, W = Win, L = Lose
     for i in range(len(weights)):
-        s = int(weights[i]) * 0.001
+        s = int(weights[i])
         play = 0
         # print(s)
         for j in range(len(head2head[i])):
             if head2head[i][j] != "N":
-                play += 1
+                play += 1000000
 
             if head2head[i][j] == "W":
                 if weights[j] > weights[i]:
-                    s = s + 1001
+                    s = s + 1001000
                 else:
-                    s = s + 1000
+                    s = s + 1000000
         if play != 0:
-            score.append(s / (play * 10000))
+            score.append((s / play) * 100)
         else:
             score.append(s)
 
