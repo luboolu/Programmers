@@ -4,27 +4,34 @@ def solution(info, query):
     applicant = []
     for i in info:
         split_i = i.split(" ")
-        applicant.append(
-            {"lang": split_i[0], "jd": split_i[1], "career": split_i[2], "food": split_i[3], "score": int(split_i[4])})
+        applicant.append(split_i)
+        # applicant.append({"lang": split_i[0], "jd": split_i[1], "career": split_i[2], "food": split_i[3],"score": int(split_i[4])})
 
-    # print(*applicant, sep = "\n")
+    print(*applicant, sep="\n")
 
     # 문의 조건
     querys = []
     for q in query:
-        # split_q = q.split("and")
         split_q = q.split(" ")
-        print(split_q)
         split_q = [i for i in split_q if i != "and"]
-        print(split_q)
-        print()
-        querys.append(
-            {"lang": split_q[0], "jd": split_q[1], "career": split_q[2], "food": split_q[3], "score": int(split_q[4])})
+        querys.append(split_q)
+        # querys.append({"lang": split_q[0], "jd": split_q[1], "career": split_q[2], "food": split_q[3],"score": int(split_q[4])})
 
+    print()
     print(*querys, sep="\n")
 
     # print([k for k, v in applicant[0].items() if v == 'java'])
 
-    print(applicant[0]['lang'])
+    for q in querys:
+        num = 0
+        for a in applicant:
+            if q[0] != "-" or q[0] == a[0]:
+                if q[1] != "-" or q[1] == a[1]:
+                    if q[2] != "-" or q[2] == a[2]:
+                        if q[3] != "-" or q[3] == a[3]:
+                            if q[4] != "-" or q[4] == a[4]:
+                                num + 1
+
+        answer.append(num)
 
     return answer
