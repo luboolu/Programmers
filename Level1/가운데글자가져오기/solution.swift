@@ -10,7 +10,7 @@ func solution(_ s:String) -> String {
     }
 
 }
-
+//swift의 문자열을 Index로 다루기 위한 방법 중 하나
 extension String {
     subscript(_ index: Int) -> Character {
         return self[self.index(self.startIndex, offsetBy: index)]
